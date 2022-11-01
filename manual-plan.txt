@@ -1,0 +1,4 @@
+Create MySQL with mySQL 8 and mount voluymn
+create wordpress and mount volumn
+use custom network
+test connectvity 
