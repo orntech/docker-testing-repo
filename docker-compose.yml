@@ -1,79 +1,11 @@
-#docker network create custom_bridge
-#docker run -dit -v /datadisk/mysqldata:/var/lib/mysql --network custom_bridge 
-# -e MYSQL_ROOT_PASSWORD=redhat -e MYSQL_DATABASE=redhat -e MYSQL_USER=redhat -e MYSQL_PASSWORD=redhat --name mysqldb  mysql:5.7
-# docker run -dit --name wordpress --network custom_bridge -p 8080:80 -v /datadisk/wordpress:/var/www/html wordpress
-
-
-version: "3.8"
-
 services:
-  mysqldb:
-    image: "mysql:5.7"
-    container_name: "mysql"
-    volumes:
-      - ./mysqldata:/var/lib/mysql
+  webserver:
+    image: "webserver:v1"
+    container_name: "webserver"
     networks:
-      - custom_bridge
-    environment:
-      - MYSQL_ROOT_PASSWORD=redhat
-      - MYSQL_DATABASE=redhat
-      - MYSQL_USER=redhat
-      - MYSQL_PASSWORD=redhat
-
-# nginx-proxy-manager Document Link: https://github.com/NginxProxyManager/nginx-proxy-manager
-  nginx-proxy-manager:
-    image: "jc21/nginx-proxy-manager"
-    container_name: "nginx-proxy-manager"
-    networks:
-      - custom_bridge
-    volumes:
-      - ./nginx-proxy-manager:/data
-    ports:
-      - 80:80
-      - 81:81
-
-  wordpressweb:
-    depends_on:
-      - mysqldb
-      - nginx-proxy-manager
-    image: "wordpress:latest"
-    container_name: "wordpress"
-    networks:
-      - custom_bridge
-    volumes:
-      - ./wordpress:/var/www/html
-    environment:
-      - WORDPRESS_DB_HOST=mysql
-      - WORDPRESS_DB_USER=redhat
-      - WORDPRESS_DB_PASSWORD=redhat
-      - WORDPRESS_DB_NAME=redhat
-      - WORDPRESS_TABLE_PREFIX=wp_
-  
-  phpmyadmin:
-    depends_on:
-      - mysqldb
-      - nginx-proxy-manager  
-    image: "phpmyadmin:latest"
-    container_name: "phpmyadmin"
-    networks:
-      - custom_bridge
-    environment:
-      - PMA_ARBITRARY=1
-
-  redis:
-    image: "redis:latest"
-    container_name: "redis"
-    networks:
-      - custom_bridge
-
-  centos:
-    image: "centos:7"
-    container_name: "centos"
-    networks:
-      - custom_bridge
-
+      - webnet
+    
 networks:
-  custom_bridge:
-    driver: bridge
-
-
+  webnet
+  - driver: bridge
+    
