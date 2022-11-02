@@ -3,7 +3,7 @@ version: "3.8"
 
 services:
   webserver:
-    image: webserver:v1
+    image: webserver:v2
     container_name: "webserver"
     networks:
       - webnet
