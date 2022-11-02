@@ -20,28 +20,18 @@ services:
       - MYSQL_USER=redhat
       - MYSQL_PASSWORD=redhat
 
-# nginx-proxy-manager Document Link: https://github.com/NginxProxyManager/nginx-proxy-manager
-  nginx-proxy-manager:
-    image: "jc21/nginx-proxy-manager"
-    container_name: "nginx-proxy-manager"
-    networks:
-      - custom_bridge
-    volumes:
-      - ./nginx-proxy-manager:/data
-    ports:
-      - 80:80
-      - 81:81
 
   wordpressweb:
     depends_on:
       - mysqldb
-      - nginx-proxy-manager
     image: "wordpress:latest"
     container_name: "wordpress"
     networks:
       - custom_bridge
     volumes:
       - ./wordpress:/var/www/html
+    ports:
+      - 8080:80
     environment:
       - WORDPRESS_DB_HOST=mysql
       - WORDPRESS_DB_USER=redhat
@@ -51,24 +41,19 @@ services:
   
   phpmyadmin:
     depends_on:
-      - mysqldb
-      - nginx-proxy-manager  
+      - mysqldb    
     image: "phpmyadmin:latest"
     container_name: "phpmyadmin"
     networks:
       - custom_bridge
     environment:
       - PMA_ARBITRARY=1
+    ports:
+      - 8081:80
 
   redis:
     image: "redis:latest"
     container_name: "redis"
-    networks:
-      - custom_bridge
-
-  centos:
-    image: "centos:7"
-    container_name: "centos"
     networks:
       - custom_bridge
 
