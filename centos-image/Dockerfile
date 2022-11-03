@@ -9,3 +9,4 @@ RUN mkdir nitesh
 RUN echo test docker file > nitesh/test.html
 
 CMD httpd -DFOREGROUND
+CMD mysqld_safe --user=mysql &
