@@ -6,4 +6,5 @@ RUN mkdir /code
 
 
 ENTRYPOINT [ "python3" ]
+CMD [ "date" ]
 
