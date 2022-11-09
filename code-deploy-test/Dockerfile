@@ -5,4 +5,4 @@ RUN yum install python3 -y
 RUN mkdir /code
 
 
-CMD date
+CMD python3
