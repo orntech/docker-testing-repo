@@ -5,4 +5,5 @@ RUN yum install python3 -y
 RUN mkdir /code
 
 
-CMD python3
+ENTRYPOINT [ "python3" ]
+
