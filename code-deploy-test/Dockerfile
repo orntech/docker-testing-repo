@@ -9,5 +9,5 @@ COPY  3.py /code
 
 
 ENTRYPOINT [ "python3" ]
-#CMD [ "/code/1.py" ]
+CMD [ "/code/1.py" ]
 
