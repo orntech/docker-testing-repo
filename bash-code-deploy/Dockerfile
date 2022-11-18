@@ -3,8 +3,8 @@ FROM centos:7
 
 COPY ./run.sh /run.sh
 
-#RUN sh /run.sh
+chmod +x /run.sh
+RUN /run.sh
 
-ENTRYPOINT [ "/run.sh" ]
-#ENTRYPOINT [ "/bin/bash" ]
-CMD [ "/bin/bash" ]
+ENTRYPOINT [ "/bin/bash" ]
+#CMD [ "/run.sh" ]
