@@ -7,4 +7,4 @@ RUN chmod +x /run.sh
 RUN /run.sh
 
 ENTRYPOINT [ "/bin/bash" ]
-#CMD [ "/run.sh" ]
+CMD [ "/bin/bash" ]
