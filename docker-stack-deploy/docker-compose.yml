@@ -13,4 +13,6 @@ services:
 networks:
   secnet:
     driver: overlay
-    encrypted: "true"
+    name: secnet
+    driver_opts:
+      encrypted: "true"
