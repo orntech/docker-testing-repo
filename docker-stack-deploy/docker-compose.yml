@@ -1,4 +1,4 @@
-version: "3.9"
+version: "3"
 
 services:
   pyapp:
@@ -15,4 +15,4 @@ networks:
     driver: overlay
     name: secnet
     driver_opts:
-      encrypted: "true"
+      - encrypted: 'true'
