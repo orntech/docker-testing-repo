@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  pyapp:
+    image: pyappimage
+    build: .
+    ports:
+      - 8000:8000
+    
+  redis:
+    image: redis:alpine
+
+networks:
+  secnet:
+    driver: overlay
+    driver_opts:
+      - encrypted=true
