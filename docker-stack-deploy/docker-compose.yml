@@ -2,7 +2,7 @@ version: "3"
 
 services:
   pyapp:
-    image: pyappimg
+    image: 127.0.0.1:5000/stackdemo
     build: .
     ports:
       - 8000:8000
