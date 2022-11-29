@@ -3,7 +3,6 @@ version: "3"
 services:
   pyapp:
     image: mypyapp:v1
-    build: .
     ports:
       - 8000:8000
     
