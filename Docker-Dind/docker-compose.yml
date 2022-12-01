@@ -4,20 +4,20 @@ services:
   docker-manager-1:
     image: docker:dind
     container_name: docker-manager-1
-    build: ./manager/
+    build: ./manager/.
 
   docker-manager-2:
     image: docker:dind
     container_name: docker-manager-2
-    build: ./manager/
+    build: ./manager/.
 
  docker-node-1:
     image: docker:dind
     container_name: docker-node-1
-    build: ./node/
+    build: ./node/.
 
  docker-node-2:
     image: docker:dind
     container_name: docker-node-2
-    build: ./node/
+    build: ./node/.
 
