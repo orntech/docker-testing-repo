@@ -11,12 +11,12 @@ services:
     container_name: docker-manager-2
     build: ./manager/.
 
- docker-node-1:
+  docker-node-1:
     image: docker:dind
     container_name: docker-node-1
     build: ./node/.
 
- docker-node-2:
+  docker-node-2:
     image: docker:dind
     container_name: docker-node-2
     build: ./node/.
