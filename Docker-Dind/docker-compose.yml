@@ -5,19 +5,23 @@ services:
     image: docker:dind
     container_name: docker-manager-1
     build: ./manager/.
+    privileged: true
 
   docker-manager-2:
     image: docker:dind
     container_name: docker-manager-2
     build: ./manager/.
+    privileged: true
 
   docker-node-1:
     image: docker:dind
     container_name: docker-node-1
     build: ./node/.
+    privileged: true
 
   docker-node-2:
     image: docker:dind
     container_name: docker-node-2
     build: ./node/.
+    privileged: true
 
