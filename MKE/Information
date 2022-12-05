@@ -1,0 +1,6 @@
+docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock mirantis/ucp:3.6.1 install  --swarm-only --interactive --host-address 10.0.22.233  --force-minimums
+
+UN: admin
+PW: adminadmin
+
+Alias: https://3.81.53.91

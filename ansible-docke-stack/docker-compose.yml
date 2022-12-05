@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  ansiblehost:
+    build: .
+    container_name: "ansible_controller"
+    ports:
+      - 80:80
+  
+  ansible_node1:
+    build: .
+    container_name: "ansiable_node1"
+    ports:
+      - 81:80
+
+  ansible_node2:
+    build: .
+    container_name: "ansiable_node2"
+    ports:
+      - 82:80
