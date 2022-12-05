@@ -5,7 +5,7 @@ services:
     build: .
     container_name: "ansible_controller"
     ports:
-      - 80:80
+      - 81:80
     volumes:
       - /root/docker-testing-repo/ansible-docke-stack:/root/ansiblerepo
     entrypoint: bash
@@ -15,12 +15,12 @@ services:
     build: .
     container_name: "ansiable_node1"
     ports:
-      - 81:80
+      - 82:80
     entrypoint: bash
 
   ansible_node2:
     build: .
     container_name: "ansiable_node2"
     ports:
-      - 82:80
+      - 83:80
     entrypoint: bash
