@@ -6,6 +6,8 @@ services:
     container_name: "ansible_controller"
     ports:
       - 80:80
+    volumes:
+      - /root/docker-testing-repo/ansible-docke-stack:/root/ansiblerepo
   
   ansible_node1:
     build: .
