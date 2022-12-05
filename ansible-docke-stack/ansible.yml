@@ -2,4 +2,4 @@
   tasks:
     - package: "name=httpd state=present"
     - copy: "src=nitesh.html dest=/var/www/html"
-    - service: "name=httpd status=started"
+    - service: "name=httpd state=started"
