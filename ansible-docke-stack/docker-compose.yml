@@ -2,7 +2,7 @@ version: '3'
 
 services:
   ansiblehost:
-    build: .
+    image: "ansible-image"
     container_name: "ansible_controller"
     ports:
       - 81:80
@@ -12,14 +12,14 @@ services:
 
   
   ansible_node1:
-    build: .
+    image: "ansible-image"
     container_name: "ansiable_node1"
     ports:
       - 82:80
 
 
   ansible_node2:
-    build: .
+    image: "ansible-image"
     container_name: "ansiable_node2"
     ports:
       - 83:80
