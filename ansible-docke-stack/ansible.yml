@@ -1,5 +1,6 @@
 - hosts: all
   tasks:
-    - package: "name=httpd state=present"
+    - package: "name=apache2 state=present"
+    - package: "name=curl state=present"
     - copy: "src=nitesh.html dest=/var/www/html/"
-    - service: "name=httpd state=started"
+    - service: "name=apache2 state=started"
