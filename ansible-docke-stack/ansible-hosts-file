@@ -1,4 +1,4 @@
-# Ansible Version 2.9
+# Ansible Version 2.9: https://docs.ansible.com/ansible/2.9/user_guide/intro_inventory.html#using-multiple-inventory-sources
 #ip     username        password        protocol
 
 172.17.0.3 ansible_user=root ansible_ssh_pass=redhat ansible_connection=ssh
