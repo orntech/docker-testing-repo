@@ -2,5 +2,6 @@
   tasks:
     - package: "name=apache2 state=present"
     - package: "name=curl state=present"
+    - file: "path=/var/www/html/nitesh.html  mode=0777"
     - copy: "src=nitesh.html dest=/var/www/html/"
     - service: "name=apache2 state=started"
