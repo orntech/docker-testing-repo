@@ -1,25 +1,17 @@
 version: '3'
 
 services:
-  ansiblehost:
-    image: "ansible-image"
-    container_name: "ansible_controller"
-    ports:
-      - 81:80
-    volumes:
-      - /root/docker-testing-repo/ansible-docke-stack:/root/ansiblerepo
-
-
-  
   ansible_node1:
     image: "ansible-image"
     container_name: "ansiable_node1"
     ports:
-      - 82:80
+      - 81:80
+    entrypoint: service ssh start
 
 
   ansible_node2:
     image: "ansible-image"
     container_name: "ansiable_node2"
     ports:
-      - 83:80
+      - 82:80
+    entrypoint: service ssh start
