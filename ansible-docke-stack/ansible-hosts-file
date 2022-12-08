@@ -1,0 +1,7 @@
+# Ansible Version 2.9
+#ip     username        password        protocol
+
+172.17.0.3 ansible_user=root ansible_ssh_pass=redhat ansible_connection=ssh
+172.17.0.4 ansible_user=root ansible_ssh_pass=redhat ansible_connection=ssh
+172.26.0.2 ansible_user=root ansible_ssh_pass=redhat ansible_connection=ssh
+172.26.0.3 ansible_user=root ansible_ssh_pass=redhat ansible_connection=ssh
