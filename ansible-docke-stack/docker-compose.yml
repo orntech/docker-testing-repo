@@ -2,16 +2,20 @@ version: '3'
 
 services:
   ansible_node1:
-    image: "ansible-image"
+#    image: "ansible-image"
+    build: .
     container_name: "ansiable_node1"
     ports:
       - 81:80
-    entrypoint: service ssh start
+    privileged: true
+
 
 
   ansible_node2:
-    image: "ansible-image"
+#    image: "ansible-image"
+    build: .
     container_name: "ansiable_node2"
     ports:
       - 82:80
-    entrypoint: service ssh start
+    privileged: true
+
