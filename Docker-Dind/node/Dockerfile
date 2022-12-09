@@ -1,4 +1,4 @@
 FROM docker:dind
 
-RUN docker swarm join --token SWMTKN-1-41r16mzwg56adqzw34gq1221021a4c9k8ce8410esckb8pf334-68u7ojjhjmlwmaqcau8j0qcpy 172.17.0.2:2377
+RUN docker swarm join --token SWMTKN-1-14j1liz7ez17avk7mvnbwr5swktrg2q6gfrtky7lqn0o4jzrqs-72vl325l3yohs7w4b5wisynly 10.0.22.23:2377
 

@@ -6,23 +6,30 @@ services:
     container_name: docker-manager-1
     build: ./manager/.
     privileged: true
+    networks:
+      - ingress
 
   docker-manager-2:
     #image: docker:dind
     container_name: docker-manager-2
     build: ./manager/.
     privileged: true
+    networks:
+      - ingress
 
   docker-node-1:
     #image: docker:dind
     container_name: docker-node-1
     build: ./node/.
     privileged: true
+    networks:
+      - ingress
 
   docker-node-2:
     #image: docker:dind
     container_name: docker-node-2
     build: ./node/.
     privileged: true
-
+    networks:
+      - ingress
 
