@@ -1,0 +1,28 @@
+- hosts: all
+    tasks:
+      - name: "Installing Apache Server"
+        package:
+          name:  "httpd"
+          state: present
+
+      - name: "Change Document Root"
+        copy:
+          dest: "/etc/httpd/conf.d/custom.conf"
+          content: "DocumentRoot /var/www/nitesh"
+      
+      - name: "Create Document Root Folder"
+        file:
+          path: "/var/www/nitesh"
+          state: directory
+
+      - name: "Copy Vikas.html file"
+        copy:
+          src: "vikas.html"
+          dest: "/var/www/nitesh"
+        
+      - name: "Restart Web Service"
+        service:
+          name: "httpd"
+          state: "started"
+          enabled: true
+       

@@ -1,0 +1,24 @@
+ansible.yml
+ Steps 
+
+ 1: INstall httpd server
+
+ansible all -m package -a "name=httpd state=present"
+
+2: change the document root in apache configuration
+
+ansible -m copy -a "dest=/etc/httpd/conf.d/custom.conf content='DocumentRoot /var/www/nitesh'"
+
+3: create a  new folder for documet root 
+
+ansible -m file -a "path=/var/html/nitesh state=directory"
+
+4: copy  a index  file in document root 
+
+ ansible all -m copy -a "src=nitesh.html dest=/var/www/html"
+
+ 3: restart service on httpd server  and enable on boot 
+
+ansible all -m service -a "name=httpd state=started enabled=true"
+
+ 
