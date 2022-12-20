@@ -1,28 +1,32 @@
 - hosts: all
+  vars:
+    - packageName: "apache2"
+    - documentRoot: "/var/www/nitesh"
+    - webPage: "index.html"
   tasks:
       - name: "Installing Apache Server"
         package:
-          name:  "apache2"
+          name:  "{{ packageName }}"
           state: present
 
       - name: "Change Document Root"
         copy:
-          dest: "/etc/apache2/sites-enabled/custom.conf"
-          content: "DocumentRoot /var/www/nitesh \n"
+          dest: "/etc/{{ packageName }}/sites-enabled/custom.conf"
+          content: "DocumentRoot {{ documentRoot }} \n"
       
       - name: "Create Document Root Folder"
         file:
-          path: "/var/www/nitesh"
+          path: "{{ documentRoot }}"
           state: directory
 
-      - name: "Copy Vikas.html file"
+      - name: "Copy {{ webPage }} file"
         copy:
-          src: "vikas.html"
+          src: "{{ webPage }}"
           dest: "/var/www/nitesh"
         
       - name: "Restart Web Service"
         service:
-          name: "apache2"
+          name: "{{ packageName }}"
           state: reloaded
           enabled: true
        
