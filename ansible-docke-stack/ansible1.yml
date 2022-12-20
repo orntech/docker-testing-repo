@@ -23,6 +23,6 @@
       - name: "Restart Web Service"
         service:
           name: "apache2"
-          state: "started"
+          state: reloaded
           enabled: true
        
