@@ -2,7 +2,7 @@
   tasks:
       - name: "Installing Apache Server"
         package:
-          name:  "httpd"
+          name:  "apache2"
           state: present
 
       - name: "Change Document Root"
@@ -22,7 +22,7 @@
         
       - name: "Restart Web Service"
         service:
-          name: "httpd"
+          name: "apache2"
           state: "started"
           enabled: true
        
