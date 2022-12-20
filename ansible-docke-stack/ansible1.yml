@@ -7,7 +7,7 @@
 
       - name: "Change Document Root"
         copy:
-          dest: "/etc/apache2/conf.d/custom.conf"
+          dest: "/etc/apache2/sites-enabled/custom.conf"
           content: "DocumentRoot /var/www/nitesh"
       
       - name: "Create Document Root Folder"
