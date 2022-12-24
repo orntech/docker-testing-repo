@@ -1,0 +1,32 @@
+- hosts: web
+  vars_files:
+    - "vars.yml"
+
+  tasks:
+    - name: Installing Server {{ packageName }} ....
+      package:
+        name: "{{ packageName }}"
+        state: present
+      when: (ansible_os_family == "RedHat")  and (ansible_memfree_mb >= 200) and setuptrue
+        
+    - name: create custom  {{ packageName }}  file for document root change
+      copy:
+        dest: "/etc/{{ packageName }}/conf.d/custom.conf"
+        content: "DocumentRoot {{ documentRoot}} \n"
+        
+    - name: create custom document root {{ documentRoot }}
+      file:
+        path: "{{ documentRoot}}"
+        state: directory
+        mode: 0755
+        
+    - name: copy file {{ webPage }}
+      copy:
+        src: "{{ webPage }}"
+        dest: "{{ documentRoot }}/"
+        
+    - name: Start and Enable Service {{ packagename }}
+      service:
+        name: "{{ packageName }}"
+        state: reloaded
+        enabled: true

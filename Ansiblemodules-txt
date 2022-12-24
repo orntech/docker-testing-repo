@@ -1,0 +1,6 @@
+setup: check ansible facts
+file: create file to directory and setup permission tec
+copy: copy files, cretae file and add content etc
+command: run a command on a remote Server
+package: install any package
+service: work with service, start enable etc

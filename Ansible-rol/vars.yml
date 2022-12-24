@@ -1,0 +1,4 @@
+webPage: "index.html"
+packageName: "httpd"
+documentRoot: "/var/www/nitesh"
+setuptrue: false
