@@ -1,0 +1,45 @@
+- hosts: 172.25.250.11
+  vars:
+    - packageName: docker
+  tasks:
+    - name: installing Repository {{ packageName }}
+      copy:
+        src: "docker-ce.repo"
+        dest: "/etc/yum.repos.d/docker-ce.repo"
+        
+    - name: Install {{ packageName }} core packages
+      package:
+        name:
+          - "yum-utils"
+          - "{{ packageName }}-ce"
+          - "{{ packageName }}-ce-cli"
+          - "containerd.io"
+          - "{{ packageName }}-compose-plugin"
+        state: present
+
+    - name: Install {{ packageName }} packages
+      package:
+        name:
+          - "{{ packageName }}-ce-20.10.21"
+          - "{{ packageName }}-ce-cli-20.10.21"
+          - "containerd.io"
+          - "{{ packageName }}-compose-plugin"
+        state: present
+    
+    - name: Start and Enable service {{ packageName }}
+      service:
+        name: "{{ packageName }}"
+        state: started
+        enabled: true
+
+    - name: pull image httpd
+      command: "{{item}}"
+      with_items:
+          - "/usr/bin/docker pull httpd"
+          - "/usr/bin/docker rm -f  os1"
+          - "/usr/bin/docker run -dit --name os1 -p 8080:80 httpd"
+          - "curl http://172.25.250:8080"
+      register: docker_command_output
+
+    - debug: 
+        vars: docker_command_output.stdout_lines
