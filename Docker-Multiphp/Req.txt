@@ -1,0 +1,5 @@
+Setup Nginx Server for multiple domains
+setup multiple php version and run 3 webiste on diffeent php vervsion
+run phpinfo page on all of them.
+
+deploy the same with the Ansible
