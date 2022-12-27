@@ -1,6 +1,6 @@
 FROM alpine:latest
 
-COPY ../repository /etc/apk/repositories
+COPY repository /etc/apk/repositories
 
 RUN apk add php7 php7-fpm
 
