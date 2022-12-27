@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  nginx:
+    image: "nginx:latest"
+    container_name: "nginx-server"
+    volumes:
+      - ./nginxconf:/etc/nginx/conf.d
+      - ./nginxdata:/var/www/html
+    ports:
+      - 81:81
+      - 82:82
+      - 83:83
+    
+    
