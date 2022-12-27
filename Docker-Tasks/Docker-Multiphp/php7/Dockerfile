@@ -6,4 +6,5 @@ RUN apk add php7 php7-fpm
 
 EXPOSE 9000
 
-ENTRYPOINT ["php-fpm7"]
+ENTRYPOINT ["/bin/sh"]
+CMD ["php-fpm7"]
