@@ -1,5 +1,5 @@
 version: "3.8"
-#docker run -dit --name nginxtest --network nginxtest -v nginxdata:/var/www/html -v nginxconf:/etc/nginx/conf.d -p 8081:81 -p 8082:82 -p 8083:83 nginx:latest
+#docker run -dit --name nginxtest --network nginxtest -v /root/docker-testing-repo/Docker-Tasks/Docker-Multiphp/nginxdata:/var/www/html/ -v /root/docker-testing-repo/Docker-Tasks/Docker-Multiphp/nginxconf:/etc/nginx/conf.d/ -p 8081:81 -p 8082:82 -p 8083:83 nginx:latest
 
 services:
   nginx:
